@@ -1,0 +1,41 @@
+/*-- scss:defaults --*/
+
+$body-bg: #efefef;
+$body-color: #282f6b;
+$presentation-heading-color: #282f6b !default;
+$code-block-bg: #f8f8f8;
+$font-family-sans-serif: Verdana, Arial, Helvetica, sans-serif;
+$presentation-heading-font: Verdana, Arial, Helvetica, sans-serif !default;
+$presentation-h1-font-size: 1.7em;
+$presentation-h2-font-size: 1.5em;
+
+
+/*-- scss:rules --*/
+
+.reveal .slide-logo {
+  height: 67px !important;
+  width: 95px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+.reveal .progress {
+  color: #282f6b;
+}
+
+.reveal .slide-menu-button {
+  color: #282f6b;
+}
+
+mark {
+  background-color: #282f6b;
+  color: white;
+}
+
+.highlight {
+  color: #268bd2;
+}
+
+.quarto-figure {
+  margin-bottom: 0em;
+}

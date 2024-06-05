@@ -1,0 +1,192 @@
+---
+title: "Prevendo a inflação com inteligência artificial no Brasil"
+author: '<br><b>Fernando da Silva</b><br><span style = "font-size: 70%;">Data Scientist<br><a href="https://github.com/schoulten">{{< fa brands github >}}</a>&nbsp; <a href="https://www.linkedin.com/in/schoulten/">{{< fa brands linkedin >}}</a>&nbsp; <a href="mailto:fernando@fortietwo.com">{{< fa solid envelope >}}</a>&nbsp; <a href="https://analisemacro.com.br/">{{< fa solid house >}}</a></span>'
+lang: pt
+format: 
+  revealjs:
+    theme: [moon, qmd/personalizacao.scss]
+    logo: "https://analisemacro.com.br/wp-content/uploads/dlm_uploads/2021/10/logo_am.png"
+    footer: "[analisemacro.com.br](https://analisemacro.com.br/)"
+    transition: fade
+    footnotes-hover: true
+    progress: true
+    slide-number: true
+    embed-resources: false
+    code-copy: true
+    code-link: true
+    link-external-newwindow: true
+    width: 1300
+    margin: 0.05
+    fig-asp: 0.618
+    fig-width: 5
+    fig-height: 3
+    fig-dpi: 300
+    fig-align: center
+    df-print: paged
+    chalkboard: true
+execute:
+  echo: true
+  message: false
+  warning: false
+title-slide-attributes:
+  data-background-image: "imgs/capa.jpg"
+  data-background-color: "black"
+  data-background-opacity: "0.4"
+---
+
+## <mark>Agenda</mark>
+
+<br>
+
+1.  **IA e conceitos**<br><br>
+2.  **Ferramentas de IA**<br><br>
+3.  **Projeto de previsão com IA**
+
+## <mark>Requisitos</mark>
+
+<br><br>
+
+::: incremental
+✅ **Conta no Google**<br><br>
+
+✅ **Inglês básico**
+:::
+
+## <mark>Interesse por IA</mark>
+
+<br>
+
+```{=html}
+<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/3728_RC01/embed_loader.js"></script>
+
+<script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/m/0mkz","geo":"US","time":"2004-01-01 2024-06-04"},{"keyword":"/m/0mkz","geo":"BR","time":"2004-01-01 2024-06-04"}],"category":0,"property":""}, {"exploreQuery":"date=all,all&geo=US,BR&q=%2Fm%2F0mkz,%2Fm%2F0mkz#&export=1&content=1","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
+```
+## <mark>O que é Inteligência Artificial?</mark>
+
+<br>
+
+::: columns
+::: {.column width="60%"}
+**É a capacidade que as máquinas possuem de fazerem coisas que normalmente exigiriam inteligência humana**, como:
+
+-   compreender informações
+-   resolver problemas
+-   tomar decisões
+:::
+
+::: {.column width="40%"}
+![](imgs/AI_hierarchy.svg){fig-align="center"}
+:::
+:::
+
+## <mark>O que é *Large Language Model*?</mark>
+
+É um tipo de IA capaz de entender e reproduzir a linguagem humana.
+
+![](imgs/llm.jpg){fig-align="center"}
+
+::: footer
+:::
+
+## <mark>O que é *prompt*?</mark>
+
+<br> É qualquer entrada (*input*) que você fornece para um LLM para obter uma saída (*output*) de interesse.
+
+<br>
+
+::: callout-note
+## *Prompt*
+
+Qual é a previsão para a inflação?
+:::
+
+## <mark>O que é Prompt Engineering?</mark>
+
+<br>
+
+É o processo de construir *prompts* de maneira efetiva para gerar resultados melhores e desejáveis por um modelo LLM.
+
+<br>
+
+::: callout-note
+## *Prompt*
+
+Qual é a previsão para a inflação no Brasil em 2025?
+:::
+
+## <mark>Componentes de um *prompt*</mark>
+
+<br>
+
+[**Instrução**]{style="color:blue;"}
+
+<br>
+
+::: callout-note
+## *Prompt*
+
+[Por favor forneça sua melhor previsão para a taxa de inflação no Brasil.]{style="color:blue;"}
+:::
+
+## <mark>Componentes de um *prompt*</mark>
+
+<br>
+
+[**Instrução**]{style="color:blue;"} + [**Contexto**]{style="color:maroon;"}
+
+<br>
+
+::: callout-note
+## *Prompt*
+
+[Assuma que você está em 15 de Abril de 2024.]{style="color:maroon;"} [Por favor forneça sua melhor previsão para a taxa de inflação no Brasil]{style="color:blue;"}[, medida pelo IPCA em variação % mensal e publicada pelo IBGE. Não utilize nenhuma informação que não estava disponível para você em 15 de Abril de 2024 ao formular estas previsões.]{style="color:maroon;"}
+:::
+
+## <mark>Componentes de um *prompt*</mark>
+
+<br>
+
+[**Instrução**]{style="color:blue;"} + [**Contexto**]{style="color:maroon;"} + [**Dados**]{style="color:orange;"}
+
+<br>
+
+::: callout-note
+## *Prompt*
+
+[Assuma que você está em 15 de Abril de 2024.]{style="color:maroon;"} [Por favor forneça sua melhor previsão para a taxa de inflação no Brasil]{style="color:blue;"}[, medida pelo IPCA em variação % mensal e publicada pelo IBGE. Não utilize nenhuma informação que não estava disponível para você em 15 de Abril de 2024 ao formular estas previsões.]{style="color:maroon;"} [Utilize os dados históricos da tabela anexada neste arquivo CSV.]{style="color:orange;"}
+:::
+
+## <mark>Componentes de um *prompt*</mark>
+
+<br>
+
+[**Instrução**]{style="color:blue;"} + [**Contexto**]{style="color:maroon;"} + [**Dados**]{style="color:orange;"} + [**Saída**]{style="color:green;"}
+
+<br>
+
+::: callout-note
+## *Prompt*
+
+[Assuma que você está em 15 de Abril de 2024.]{style="color:maroon;"} [Por favor forneça sua melhor previsão para a taxa de inflação no Brasil]{style="color:blue;"}[, de Maio de 2024 até Abril de 2025]{style="color:green;"}[, medida pelo IPCA em variação % mensal e publicada pelo IBGE. Não utilize nenhuma informação que não estava disponível para você em 15 de Abril de 2024 ao formular estas previsões.]{style="color:maroon;"} [Utilize os dados históricos da tabela anexada neste arquivo CSV.]{style="color:orange;"} [Por favor forneça valores numéricos para estas previsões, em um formato tabular do tipo CSV, e nada mais.]{style="color:green;"}
+:::
+
+## <mark>Quais são as ferramentas de IA?</mark>
+
+<br>
+
+| Empresa | Nome       | Modal                               | API      |
+|---------|------------|-------------------------------------|----------|
+| OpenAI  | GPT-3.5    | Texto                               | Paga     |
+| OpenAI  | GPT-4      | Texto, Imagem                       | Paga     |
+| Google  | PaLM 2     | Texto                               | Gratuita |
+| Google  | Gemini 1.5 | Texto, Imagem, Áudio, Vídeo, Código | Gratuita |
+
+::: footer
+\*Estas informações podem mudar, para mais detalhes consulte o site da empresa.
+:::
+
+## <mark>Projeto de previsão com IA</mark>
+
+<br><br><br>
+
+### Momento prática!
