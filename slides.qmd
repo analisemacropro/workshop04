@@ -1,5 +1,5 @@
 ---
-title: "Prevendo a inflação com inteligência artificial no Brasil"
+title: "Prevendo a inflação do Brasil com inteligência artificial e Python"
 author: '<br><b>Fernando da Silva</b><br><span style = "font-size: 70%;">Data Scientist<br><a href="https://github.com/schoulten">{{< fa brands github >}}</a>&nbsp; <a href="https://www.linkedin.com/in/schoulten/">{{< fa brands linkedin >}}</a>&nbsp; <a href="mailto:fernando@fortietwo.com">{{< fa solid envelope >}}</a>&nbsp; <a href="https://analisemacro.com.br/">{{< fa solid house >}}</a></span>'
 lang: pt
 format: 
